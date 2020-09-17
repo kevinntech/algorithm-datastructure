@@ -1,4 +1,4 @@
-package algorithm.cps.c;
+package algorithm.cps.d;
 
 import java.util.Scanner;
 
@@ -17,12 +17,12 @@ public class ProblemEx32 {
         for(int i=0; i<n-1; i++){
             idx = i;
 
-            for(int j=i+1; j<n; j++){
+            for(int j=i+1; j<n; j++){ // 오름차순 기준 , 최소 값의 위치 탐색
                 if(number[j] < number[idx])
                     idx = j;
             }
 
-            temp = number[i];
+            temp = number[i]; // i와 idx 값 SWAP
             number[i] = number[idx];
             number[idx] = temp;
         }
