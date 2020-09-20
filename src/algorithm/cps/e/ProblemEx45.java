@@ -1,4 +1,4 @@
-package algorithm.cps.d;
+package algorithm.cps.e;
 
 import java.util.Scanner;
 
