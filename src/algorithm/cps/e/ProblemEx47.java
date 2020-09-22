@@ -25,7 +25,7 @@ public class ProblemEx47 {
                 isAnswer = true;
 
                 for(int k = 0; k < 4; k++){
-                    if(map[i][j] <= map[i + dx[k]][j + dy[k]]){ // 자신의 상하좌우 보다 작거나 같으면 봉우리가 아니다.
+                    if(map[i][j] <= map[i + dx[k]][j + dy[k]]){ // 자신이 상하좌우 보다 작거나 같으면 봉우리가 아니다.
                         isAnswer = false;
                         break;
                     }
