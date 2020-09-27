@@ -42,5 +42,6 @@ public class ProblemEx39 {
         for(int i = 0; i < p3; i++){
             System.out.print(c[i] + " ");
         }
+
     }
 }
