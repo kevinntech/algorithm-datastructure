@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProblemEx67 {
-    static int n, m, cnt, min = 2147000000;
+    static int n, m, min = 2147000000;
     static int[][] map;
     static int[] check;
 
@@ -28,7 +28,7 @@ public class ProblemEx67 {
         check[1] = 1; // 1번 정점을 방문
         dfs(1, 0);
 
-        System.out.println(cnt);
+        System.out.println(min);
     }
 
     private static void dfs(int v, int sum) {
