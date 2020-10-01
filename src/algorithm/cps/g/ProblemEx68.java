@@ -63,7 +63,6 @@ public class ProblemEx68 {
 }
 
 /*
-
 5 8
 1 2 12
 1 3 6
@@ -73,5 +72,4 @@ public class ProblemEx68 {
 3 4 3
 4 2 2
 4 5 5
-
 */
