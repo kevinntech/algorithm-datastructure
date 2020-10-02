@@ -27,7 +27,7 @@ public class ProblemEx70 {
             map[i] = new ArrayList<>();
         }
 
-        for(i = 1; i <= m; i++){ // 인접 행렬 만들기
+        for(i = 1; i <= m; i++){ // 인접 리스트 만들기
             a = sc.nextInt();
             b = sc.nextInt();
             map[a].add(b); // (방향 그래프) a에서 b로 갈 수 있다.
