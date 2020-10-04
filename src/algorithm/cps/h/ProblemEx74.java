@@ -26,8 +26,7 @@ public class ProblemEx74 {
                 else
                     System.out.println(queue.poll());
             }else
-                queue.add(input);
-
+                queue.offer(input);
         }
 
     }

@@ -25,10 +25,25 @@ public class ProblemEx73 {
                 else
                     System.out.println(queue.poll());
             }else
-                queue.add(input);
-
+                queue.offer(input);
         }
 
     }
 
 }
+
+/*
+
+5
+3
+6
+0
+5
+0
+2
+4
+0
+-1
+
+
+*/

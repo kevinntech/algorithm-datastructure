@@ -21,15 +21,15 @@ public class ProblemEx71 {
         Queue<Integer> queue = new LinkedList();
         check = new int[N+1];
 
-        queue.add(s);
-        check[s] = 1; // 출발 지점(s)을 방문 처리 + 점프 횟수 1를 지정
+        queue.offer(s);
+        // check 배열은 방문 처리 여부 + 해당 지점까지의 최소 점프 횟수를 기록함
+        check[s] = 1; // 출발 지점(s)을 방문 처리 + 점프 횟수를 1 지정
 
         while(!queue.isEmpty()){ // 큐가 비어 있지 않은 동안 (큐에 자료가 있다면)
-            x = queue.poll();
+            x = queue.poll(); // x : 현수가 현재 위치한 지점
 
             for(i=0; i<3; i++){
-                // pos : 이동 하려는 지점
-                pos = x + d[i]; // x : 현수가 현재 위치한 지점 , d[i] : 한 번의 점프로 이동 할 수 있는 범위
+                pos = x + d[i]; // pos : 이동 하려는 지점 , d[i] : 한 번의 점프로 이동 할 수 있는 범위
 
                 if(pos <= 0 || pos > N) // pos가 범위를 벗어나면 다음 반복으로 넘어감
                     continue;
@@ -40,9 +40,8 @@ public class ProblemEx71 {
                 }
 
                 if(check[pos] == 0){ // 이동 하려는 지점(pos)이 한번도 방문하지 않은 지점이면
-                    // check 배열은 방문 여부를 체크 + 해당 지점까지의 최소 점프 횟수를 기록함
-                    check[pos] = check[x] + 1; // x 지점까지의 최소 점프 횟수 + 1
-                    queue.add(pos);
+                    check[pos] = check[x] + 1; // 방문 처리를 하는데 최소 점프 횟수를 기록한다. (x 지점까지의 최소 점프 횟수 + 1)
+                    queue.offer(pos);
                 }
             }
         }

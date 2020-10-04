@@ -19,11 +19,11 @@ public class ProblemEx72 {
         }
 
         while(!queue.isEmpty()){
-            for(int i=1; i<k; i++){ // k 이전 까지는 POP, PUSH 반복
+            for(int i=1; i<k; i++){ // k번이 되기 전 까지는 POP, PUSH 반복
                 queue.offer(queue.poll());
             }
 
-            queue.poll(); // k 번째(3 번쨰)가 되면 pop
+            queue.poll(); // k 번째(3 번쨰)가 되면 큐에서 제거
 
             if(queue.size() == 1) {
                 System.out.println(queue.poll());

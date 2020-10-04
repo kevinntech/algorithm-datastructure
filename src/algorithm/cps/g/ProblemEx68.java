@@ -3,8 +3,8 @@ package algorithm.cps.g;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// 가중치 방향 그래프를 인접 리스트로 표현 하려면 Pair라는 것을 사용한다.
-class Pair {
+// 가중치 방향 그래프를 인접 리스트로 표현 하려면 Pair라는 것을 사용 해야 한다.
+class Pair { // Pair는 2개의 데이터를 한 쌍으로 묶어서 관리한다.
     int x, y;
     Pair(int x, int y) {
         this.x = x;
