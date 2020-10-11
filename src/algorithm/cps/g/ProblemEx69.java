@@ -13,7 +13,7 @@ public class ProblemEx69 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a, b, x;
-        Queue<Integer> queue = new LinkedList();
+        Queue<Integer> queue = new LinkedList<>();
 
         map = (ArrayList<Integer>[]) new ArrayList[N+1];
         check = new int[N+1]; // 방문 여부를 체크
@@ -38,7 +38,7 @@ public class ProblemEx69 {
             x = queue.poll();
             System.out.print(x + " "); // 방문
 
-            for(int i=0; i<map[x].size(); i++){ // x와 연결된 노드
+            for(int i=0; i<map[x].size(); i++){ // for 문을 돌면서 인접 리스트에서 x와 연결된 노드를 찾는다.
                 int y = map[x].get(i);
                 if (check[y] == 0) { // 방문 하지 않았다면
                     check[y] = 1; // 방문 처리

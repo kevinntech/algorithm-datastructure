@@ -21,7 +21,7 @@ public class ProblemEx70 {
 
         map = (ArrayList<Integer>[]) new ArrayList[n+1];
         check = new int[n+1]; // 방문 여부를 체크
-        dis = new int[n+1]; // 해당 정점까지의 최소 간선 개수
+        dis = new int[n+1]; // 해당 정점까지의 최소 이 간선 수
 
         for (i=1; i<=n; i++) {
             map[i] = new ArrayList<>();

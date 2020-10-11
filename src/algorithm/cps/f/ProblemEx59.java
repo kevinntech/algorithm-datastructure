@@ -22,9 +22,9 @@ public class ProblemEx59 {
             }
             System.out.println(""); // 반환타입 void이므로 return 문 없어도 됨
         }else{
-            ch[l] = 1; // 왼쪽 자식을 탐색 (부분 집합에 포함 O)
+            ch[l] = 1; // 왼쪽 자식을 탐색 (l 원소가 부분 집합에 포함 O)
             DFS(l+1, ch); // LEVEL를 1 증가
-            ch[l] = 0; // 오른쪽 자식을 탐색 (부분 집합에 포함 X)
+            ch[l] = 0; // 오른쪽 자식을 탐색 (l 원소가 부분 집합에 포함 X)
             DFS(l+1, ch); // LEVEL를 1 증가
         }
     }

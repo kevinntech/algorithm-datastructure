@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class ProblemEx65 {
     static final int N = 7;
     static int[][] map = new int[N+1][N+1];
-    static int[][] check = new int[N+1][N+1];
-    static int[] dx = { -1, 0, 1, 0};
+    static int[][] check = new int[N+1][N+1]; // 해당 격자에 대한 방문 여부를 체크하는 배열
+    static int[] dx = { -1, 0, 1, 0}; // 방향 탐색에 사용 될 배열
     static int[] dy = { 0, 1, 0, -1};
     static int cnt = 0;
 
@@ -19,7 +19,7 @@ public class ProblemEx65 {
             }
         }
 
-        check[1][1] = 1; // 1행 1열 부터 출발
+        check[1][1] = 1; // 1행 1열을 방문 처리하고 시작
         dfs(1, 1);
         System.out.println(cnt);
     }
@@ -27,12 +27,12 @@ public class ProblemEx65 {
     private static void dfs(int x , int y) {
         int nextX, nextY;
 
-        if(x == N && y == N){ // 종료 지점
+        if(x == N && y == N){ // 종료 지점에 왔다면
            cnt++;
         }else{
-            for(int i=0; i<4; i++){
-                nextX = x + dx[i]; // 이동 할 좌표는 현재 X 좌표 + dx[i]
-                nextY = y + dy[i]; // 이동 할 좌표는 현재 Y 좌표 + dy[i]
+            for(int i = 0; i < 4; i++){
+                nextX = x + dx[i]; // 이동 할 x 좌표는 현재 X 좌표 + dx[i]
+                nextY = y + dy[i]; // 이동 할 y 좌표는 현재 Y 좌표 + dy[i]
 
                 if(nextX < 1 || nextX > N || nextY < 1 || nextY > N) // 격자의 범위를 벗어나면 다음 반복으로 넘어감
                     continue;
