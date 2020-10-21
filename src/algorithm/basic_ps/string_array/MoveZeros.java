@@ -14,8 +14,6 @@ public class MoveZeros {
     }
 
     private static void moveZeros(int[] nums) {
-        Arrays.sort(nums);
-
         int curruntPos = 0;
 
         // 0이 아닌 요소를 먼저 배열에 담는다.
