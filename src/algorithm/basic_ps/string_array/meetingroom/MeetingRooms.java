@@ -1,4 +1,4 @@
-package algorithm.basic_ps.string_array;
+package algorithm.basic_ps.string_array.meetingroom;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -6,13 +6,19 @@ import java.util.Comparator;
 class Interval{
     int start;
     int end;
-    Interval(){
-        this.start = 0;
-        this.end =0;
-    }
+
     Interval(int s, int e){
         this.start = s;
         this.end = e;
+    }
+
+    // 코드 파악 하려고 추가한 것 (필요 X)
+    @Override
+    public String toString() {
+        return "Interval{" +
+                "start=" + start +
+                ", end=" + end +
+                '}';
     }
 }
 

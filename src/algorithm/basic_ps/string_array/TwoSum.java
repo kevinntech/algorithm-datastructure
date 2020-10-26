@@ -8,6 +8,9 @@ public class TwoSum {
         int[] nums = {2,8,11,21};
         int target = 10;
 
+        /*  int[] nums = {-1, -2, -3, -4, -5};
+            int target = -8;    */
+
         int[] result = solve(nums, target);
 
         for(int i : result)
