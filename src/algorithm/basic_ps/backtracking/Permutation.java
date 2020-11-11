@@ -19,7 +19,7 @@ public class Permutation {
             return result;
         }
 
-        go(nums, result, new ArrayList<Integer>());
+        go(nums, result, new ArrayList<>());
 //        backtrackingView(nums, result, new ArrayList<Integer>()); // 정답 계산 과정 보기
 
         return result;
@@ -32,16 +32,16 @@ public class Permutation {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            // 중복을 허용하지 않도록 함 (반복문 탈출 조건)
+            // 중복을 허용하지 않도록 함 (무조건 한번만 사용 되도록 함)
             if (cur.contains(nums[i])) {
-                continue;
+                continue; // 반복을 건너 뜀
             }
 
             cur.add(nums[i]);
 
             go(nums, result, cur);
 
-            cur.remove(cur.size() - 1);
+            cur.remove(cur.size() - 1); // 마지막에 추가한 숫자 삭제
         }
     }
 

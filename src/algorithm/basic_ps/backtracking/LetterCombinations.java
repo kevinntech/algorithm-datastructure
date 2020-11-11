@@ -7,8 +7,6 @@ public class LetterCombinations{
     public static void main(String[] args) {
         LetterCombinations a = new LetterCombinations();
         System.out.println(a.letterCombinations("23"));
-
-        StringBuilder sb = new StringBuilder("abc");
     }
 
     String phoneLetters[] = { "",    "",    "abc",  "def", "ghi",
@@ -17,7 +15,7 @@ public class LetterCombinations{
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();
 
-        if(digits.length() == 0)
+        if(digits.length() == 0) // 에러 처리
             return result;
 
         go(digits, new StringBuilder(), 0, result);
@@ -40,11 +38,16 @@ public class LetterCombinations{
 
             // phoneLetters에 사용할 반복문
             for(int j = 0; j < letters.length(); j++) {
-                cur.append(letters.charAt(j));
+                cur.append(letters.charAt(j));          // a
+                System.out.println(cur);
 
-                go(digits, cur, i + 1, result);
+                // i + 1을 index+1로 표시하여 실수한적 있음
+                go(digits, cur, i + 1, result);   // ad , ae, af
 
-                cur.setLength(curlen); // go() 호출이 끝나면 끝 문자 삭제
+                // go() 호출이 끝나면 마지막 문자 삭제
+                cur.setLength(curlen);
+
+                System.out.println(cur + "==");
                 //cur.deleteCharAt(curlen); // 해당 코드로 대체 가능
             }
         }
