@@ -1,6 +1,7 @@
 package algorithm.basic_ps.string_array;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class KthLargestElement {
@@ -22,15 +23,20 @@ public class KthLargestElement {
 
     // 두 번째 방식 (우선순위 큐 이용)
     public static int findKthLargest_pq(int[] nums, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder());
 
-        for (int num : nums) {
-            queue.offer(num);
-
-            if(queue.size() > 2)
-                queue.poll();
+        for(int i = 0; i < nums.length; i++){
+            queue.offer(nums[i]);
         }
 
-        return queue.peek();
+        int index = 1;
+        int result = 0;
+
+        while(index <= k){
+            result = queue.poll();
+            index++;
+        }
+
+        return result;
     }
 }

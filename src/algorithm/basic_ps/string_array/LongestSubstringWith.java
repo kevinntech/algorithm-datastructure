@@ -17,6 +17,9 @@ public class LongestSubstringWith {
         Map<Character,Integer> map = new HashMap<>();
         int start = 0, end = 0, len = 0, count = 0; // start는 시작점, end는 끝점, count는 문자 개수를 의미하며 문자 2개를 사용 했는지를 체크할 때 사용
 
+        /*
+        * getOrDefault() : 지정된 키의 값을 반환한다. 만약 없다면 기본 값을 반환한다.
+        * */
         while(end < s.length()){
             char endChar = s.charAt(end); // 끝점(end)이 가리키는 문자
             map.put(endChar, map.getOrDefault(endChar, 0) + 1); // Map에 알파벳 별 사용한 문자 개수를 기록한다.
@@ -26,7 +29,7 @@ public class LongestSubstringWith {
             }
             end++;  // 끝점을 한 칸 뒤로 옮긴다.
 
-            // 앞서 사용 했던 c 2개를 삭제한다.
+            // 앞서 사용 했던 문자(c) 2개를 삭제한다.
             while(count > 2){
                 char startChar = s.charAt(start);
                 map.put(startChar, map.get(startChar) - 1); // map에서 시작점(start)이 가리키는 문자와 같은 문자 개수를 감소시킨다.

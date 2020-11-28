@@ -30,15 +30,15 @@ public class MissingRanges {
                 continue;
             }
 
-            // nums [i]> 다음 인 경우 : 누락 된 범위 [next, nums [i] — 1]을 추가합니다.
+            // nums[i] > next 인 경우 : 누락 된 범위 [next, nums [i] — 1]을 추가합니다.
             res.add(getRange(next, nums[i] - 1));
 
             // 다음 값을 nums [i] + 1로 수정합니다.
             next = nums[i] + 1;
         }
 
-        // 위의 반복을 마친 후 최종 다음 값을 다시 확인해야합니다.
-        // next ≤ upper이면 추가 할 누락 된 범위 [다음, 상위]가 있습니다.
+        // 위의 반복을 마친 후 최종 next 값을 다시 확인해야합니다.
+        // next ≤ upper이면 추가 할 누락 된 범위 [next, upper]가 있습니다.
         if (next <= upper) {
             res.add(getRange(next, upper));
         }

@@ -33,7 +33,7 @@ public class MergeKSortedLists {
     }
 
     public static ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(new Comp());
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(new Comp());
 
         ListNode dummyHead = new ListNode(0);
         ListNode p = dummyHead; // p는 조작할 때 사용한다.

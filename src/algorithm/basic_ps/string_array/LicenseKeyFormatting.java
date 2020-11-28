@@ -13,6 +13,7 @@ public class LicenseKeyFormatting{
     public static String licenseKeyFormatting(String S, int K) {
         // 하이픈(-)을 빈 문자열로 대체한다.
         String str = S.replace("-", "");
+
         // 문자열을 대문자로 변환한다.
         str = str.toUpperCase();
 
