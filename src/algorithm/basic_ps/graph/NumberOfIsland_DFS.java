@@ -13,43 +13,46 @@ public class NumberOfIsland_DFS {
         System.out.println(a.numIslands(grid));
     }
 
-    int[] dx = {0, 0, 1, -1};
-    int[] dy = {1, -1, 0, 0};
-    int[][] group;
-    int n, m;
+    int m, n;
+    boolean[][] visited;
+    int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     public int numIslands(char[][] grid) {
         if(grid == null|| grid.length == 0 || grid[0].length == 0) // 에러 처리 (정답을 구할 수 없는 경우)
             return 0;
 
-        n = grid.length;
-        m = grid[0].length;
+        int result = 0;
+        m = grid.length;
+        n = grid[0].length;
+        visited = new boolean[m][n];
 
-        group = new int[n][m];
-
-        int count = 0;
-
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                if(grid[i][j] == '1' && group[i][j] == 0) {
-                    dfs(grid, i, j, ++count);
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == '1' && visited[i][j] == false){
+                    result++;
+                    dfs(grid, i, j);
                 }
             }
         }
 
-        return count;
+        return result;
     }
 
-    public void dfs(char[][] grid, int x, int y, int count) {
-        group[x][y] = count;
+    public void dfs(char[][] grid, int x, int y) {
+        if(visited[x][y])
+            return;
 
-        for (int k = 0; k < 4; k++) {
-            int nx = x + dx[k];
-            int ny = y + dy[k];
+        visited[x][y] = true;
 
-            if (0 <= nx && nx < n && 0 <= ny && ny < m) {
-                if (grid[nx][ny] == '1' && group[nx][ny] == 0) {
-                    dfs(grid, nx, ny, count);
+        for(int[] dir : dirs){
+            int nx = x + dir[0];
+            int ny = y + dir[1];
+
+            if(0 <= nx && nx < m && 0 <= ny && ny < n){
+
+                if(grid[nx][ny] == '1' && visited[nx][ny] == false) {
+                    dfs(grid, nx, ny);
+                    visited[nx][ny] = true;
                 }
             }
         }
