@@ -18,28 +18,24 @@ public class MaxAreaOfIsland_DFS {
         System.out.println(a.maxAreaOfIsland(grid));
     }
 
-    int[] dx = {0, 0, 1, -1};
-    int[] dy = {1, -1, 0, 0};
-    int[][] group;
-    int n, m;
+    int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    int m, n;
+    boolean[][] visited;
 
     public int maxAreaOfIsland(int[][] grid) {
         if (grid == null || grid.length == 0) {
             return 0;
         }
 
-        n = grid.length;
-        m = grid[0].length;
-
-        group = new int[n][m];
-
-        int islandCnt = 0;
         int max = 0;
+        m = grid.length;
+        n = grid[0].length;
+        visited = new boolean[m][n];
 
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                if(grid[i][j] == 1 && group[i][j] == 0) {
-                    int area = dfs(grid, i, j, ++islandCnt, 0);
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == 1 && visited[i][j] == false){
+                    int area = dfs(grid, i, j, 0);
                     max = Math.max(area, max);
                 }
             }
@@ -48,17 +44,18 @@ public class MaxAreaOfIsland_DFS {
         return max;
     }
 
-    public int dfs(int[][] grid, int x, int y, int islandCnt, int area) {
-        group[x][y] = islandCnt;
+    public int dfs(int[][] grid, int x, int y, int area) {
+        visited[x][y] = true;
         area++;
 
-        for (int k = 0; k < 4; k++) {
-            int nx = x + dx[k];
-            int ny = y + dy[k];
+        for(int[] dir : dirs){
+            int nx = x + dir[0];
+            int ny = y + dir[1];
 
-            if (0 <= nx && nx < n && 0 <= ny && ny < m) {
-                if (grid[nx][ny] == 1 && group[nx][ny] == 0) {
-                    area = dfs(grid, nx, ny, islandCnt, area);
+            if(0 <= nx && nx < m && 0 <= ny && ny < n){
+                if(grid[nx][ny] == 1 && visited[nx][ny] == false){
+                    visited[nx][ny] = true;
+                    area = dfs(grid, nx, ny, area);
                 }
             }
         }

@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Subsets {
 
-
     public static void main(String[] args) {
         Subsets a = new Subsets();
         int[] nums = {1,2,3};

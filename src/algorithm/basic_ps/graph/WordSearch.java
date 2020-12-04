@@ -1,5 +1,6 @@
 package algorithm.basic_ps.graph;
 
+/* 해당 문제의 Topic은 Backtracking으로 파악 됨 */
 public class WordSearch {
     public static void main(String[] args) {
         char[][] grid ={
@@ -8,27 +9,27 @@ public class WordSearch {
                 {'A','D','E','E'}
         };
 
-        String word ="ABCCEED";
+        String word ="ABCCED";
 
         WordSearch a = new WordSearch();
         System.out.println(a.exist(grid, word));
     }
 
-    int[][] dirs = {{-1, 0},{1, 0},{0, -1},{0, 1}};
-    int n, m;
+    int[][] dirs = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    int m, n;
+    boolean[][] visited;
 
     public boolean exist(char[][] board, String word) {
         if(board == null || board.length == 0 || board[0].length == 0)
             return false;
 
-        n = board.length;
-        m = board[0].length;
+        m = board.length;
+        n = board[0].length;
+        visited = new boolean[m][n];
 
-        boolean[][] visited = new boolean[n][m];
-
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                if(dfs(board, visited, i, j, 0, word)) {
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(recursive(board, word, i, j,0)) {
                     return true;
                 }
             }
@@ -37,13 +38,13 @@ public class WordSearch {
         return false;
     }
 
-    public boolean dfs(char[][] board, boolean[][] visited, int x, int y ,int index, String word) {
+    public boolean recursive(char[][] board, String word, int x, int y, int index) {
         // 정답인 경우
         if(index == word.length())
             return true;
 
         // 정답이 불가능한 경우
-        if(x < 0 || x >= n || y < 0 || y >= m) // 격자의 범위를 넘어 섰다면 불가능
+        if(x < 0 || x >= m || y < 0 || y >= n) // 격자의 범위를 넘어 섰다면 불가능
             return false;
 
         if(visited[x][y])
@@ -56,10 +57,10 @@ public class WordSearch {
         visited[x][y] = true;
 
         for(int[] dir : dirs) {
-            int dx = x + dir[0];
-            int dy = y + dir[1];
+            int nx = x + dir[0];
+            int ny = y + dir[1];
 
-            if(dfs(board, visited, dx, dy,index + 1, word)) {
+            if(recursive(board, word, nx, ny,index + 1)) {
                 return true;
             }
         }

@@ -26,6 +26,7 @@ public class Permutation {
     }
 
     private void go(int[] nums, List<List<Integer>> result, List<Integer> cur) {
+        // cur에 저장된 숫자가 nums의 길이와 같다면 정답을 구한 경우이다.
         if (cur.size() == nums.length) {
             List<Integer> temp = new ArrayList<>(cur);
             result.add(temp);

@@ -24,14 +24,14 @@ public class MaximumDepthOfBinaryTree {
     }
 
     public int maxDepth(TreeNode root) {
-        // 재귀를 이용한 문제 해결
+        // 재귀를 이용한 문제 해결 (후위 순회)
         if (root == null)
             return 0;
 
-        //System.out.println(root.val);
-
         int leftMax = maxDepth(root.left);    // 왼쪽 자식 노드를 방문
         int rightMax = maxDepth(root.right);  // 오른쪽 자식 노드를 방문
+
+        // System.out.println("[현재 노드] " + root.val + " : " + leftMax + " , " + rightMax);
 
         return Math.max(leftMax, rightMax) + 1;
     }
