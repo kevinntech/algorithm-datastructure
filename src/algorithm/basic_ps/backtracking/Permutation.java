@@ -20,7 +20,7 @@ public class Permutation {
         }
 
         go(nums, result, new ArrayList<>());
-//        backtrackingView(nums, result, new ArrayList<Integer>()); // 정답 계산 과정 보기
+        backtrackingView(nums, result, new ArrayList<Integer>()); // 정답 계산 과정 보기
 
         return result;
     }

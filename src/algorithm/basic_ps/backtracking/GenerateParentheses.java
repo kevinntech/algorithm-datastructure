@@ -10,7 +10,7 @@ public class GenerateParentheses {
     }
 
     public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList();
+        List<String> result = new ArrayList<>();
         go(result, "", 0, 0, n);
 
         return result;

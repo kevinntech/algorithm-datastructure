@@ -31,7 +31,7 @@ public class Subsets {
 
         //2 for 저장, 탈출
         for(int i = index; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
+            //System.out.print(nums[i] + " ");
             cur.add(nums[i]);
 
             go(nums, result, cur,i + 1);
