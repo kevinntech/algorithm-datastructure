@@ -21,23 +21,27 @@ public class TwoSum {
         Map<Integer, Integer> map = new HashMap<>();
         int[] result = new int[2];
 
-		/*	(1) nums 배열을 for 문으로 반복 하면서
+		/*
+		    요약 하자면, 반복문을 돌면서 이미 봤던 값은 Map에 저장하고 target과 현재 요소의 차이가
+		    이미 봤던 값과 같다면 그것은 정답이다.
 
-			(2) 만들어야 되는 숫자(target)와 nums 배열 요소의 차이를 구한 다음, 그 값을 Map에 저장한다.
+			(1) nums 배열을 for 문으로 반복 하면서
 
-     			저장 할 때는 key : 차이 값 , value : nums 배열 요소의 인덱스를 저장한다.
+			(2) 만들어야 되는 숫자(target)와 nums 배열 요소의 차이를 구한 다음, 그 값이 Map에 있는지 확인한다.
 
-			(3) Map에서 앞서 구한 "차이 값"과 일치하는 것이 있다면 그 값은 내가 만들어야 되는 숫자가
+                없다면 Map에 key : nums 배열 요소의 값 , value : nums 배열 요소의 인덱스를 저장한다.
 
-    			될 수 있는 값이므로 인덱스를 반환한다.	*/
+			(3) Map에서 "만들어야 되는 숫자(target), nums 배열 요소의 차이"와 일치하는 것이 있다면
 
-        for(int i=0; i<nums.length; i++) {
-            if(map.containsKey(nums[i])){
-                int mapValue = map.get(nums[i]);
-                result[0] = mapValue;
+			    그 값은 내가 만들어야 되는 숫자가 될 수 있는 값이므로 인덱스를 반환한다.	*/
+
+        for(int i = 0; i < nums.length; i++) {
+            if(map.containsKey(target - nums[i])){
+                int value = map.get(target - nums[i]);
+                result[0] = value;
                 result[1] = i;
             }else {
-                map.put(target-nums[i], i);
+                map.put(nums[i], i);
             }
         }
 
