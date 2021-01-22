@@ -1,4 +1,4 @@
-package datastructure.stack;
+package datastructure.stack.array;
 
 import java.util.Scanner;
 

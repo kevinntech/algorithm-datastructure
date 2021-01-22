@@ -24,7 +24,7 @@ public class Subsets {
         return result;
     }
 
-    // cur : [ ] -> [1] -> [1, 2] -> [1, 2, 3] -> 마지막 숫자 제거 -> [1, 3] -> [2, 3] -> [3]
+    // cur : [ ] -> [1] -> [1, 2] -> [1, 2, 3] -> 마지막 숫자 제거 -> [1, 3] -> [2] -> [2, 3] -> [3]
     private void go(int[] nums, List<List<Integer>> result, List<Integer> cur, int index) {
         List<Integer> list = new ArrayList<>(cur);
         result.add(list);
