@@ -1,4 +1,4 @@
-package datastructure.binaryheap;
+package datastructure.binaryheap.arrayimpl;
 
 import java.util.Scanner;
 
